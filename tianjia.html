@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+        .boxs{
+           width: 300px;
+           padding: 10px;
+           margin: 10px auto; 
+           border-left: 5px solid gray; 
+        }
+        .todo{
+        	font-size: 17px;
+        	/*font-weight: bold;*/
+        	margin-right: 20px;
+        }
+        .del{
+        	background-color: gray;
+        	border: none;
+        	color: #fff;
+        	font-weight: bolder;
+        }
+	</style>
+	<script type="text/javascript" src="jquery-3.2.0.min.js"></script>
+
+	<script type="text/javascript">
+        $(function(){
+
+           $('#btn').on("click",function(){
+           	if ($('#msg').val()) {
+           		$("<div class='boxs'><span class='todo'>"+$("#msg").val()+"</span><input type='button' value='删除' class='del'><div>"+new Date().toLocaleString()+"</div></div>").appendTo('body');
+                $('#msg').val("");
+                $('.del').on("click",function(){
+                	$($(this).parent()).remove();
+                })
+           	}
+           })
+
+        })
+	</script>
+</head>
+<body>
+  <div style="text-align: center;">
+    <span style="font-size: 30px;font-weight: bolder;">TODO LIST </span><span style="font-size: 20px; color: #B9BEC6">任务列表</span><hr/>
+    <form>
+        <input type="text" id="msg" style="border-radius: 8px; width: 260px; border: 1px solid #B9BEC6;">
+        <input type="button" id="btn" value="添加Todo" style="background-color: green; border: 1px solid #B9BEC6;">
+    </form>
+    <table>
+        
+    </table>
+  </div>
+</body>
+</html>
